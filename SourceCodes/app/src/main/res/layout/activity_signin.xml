@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable name="signinVM" type="com.beyzaozansapplication.app.modules.signin.data.viewmodel.SigninVM"/>
+    </data>
+    <LinearLayout android:gravity="center_horizontal"
+        android:id="@+id/linearSignin"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:orientation="vertical" style="@style/groupStylewhite_A700">
+        <FrameLayout android:gravity="start"
+            android:id="@+id/frameImageplacehold"
+            android:layout_height="match_parent" android:layout_width="match_parent">
+            <ImageView android:id="@+id/imageImage"
+                android:layout_gravity="start"
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:scaleType="fitXY"
+                imageRes="@{@drawable/img_image_800x390}"
+                tools:ignore="ContentDescription" tools:src="@drawable/img_image_800x390"/>
+            <LinearLayout android:id="@+id/linearColumnpagetitle"
+                android:layout_gravity="start"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:orientation="vertical" style="@style/groupStyle_2">
+                <LinearLayout android:gravity="center_horizontal"
+                    android:id="@+id/linearNavigationbar"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:orientation="vertical" style="@style/groupStyle">
+                    <LinearLayout android:gravity="center_horizontal"
+                        android:id="@+id/linearLargetitlebar"
+                        android:layout_height="match_parent"
+                        android:layout_width="match_parent"
+                        android:orientation="vertical" style="@style/groupStyle">
+                        <TextView android:ellipsize="end"
+                            android:gravity="start"
+                            android:id="@+id/txtPagetitle"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="@dimen/_38pxv"
+                            android:layout_marginEnd="@dimen/_16pxh"
+                            android:layout_marginStart="@dimen/_16pxh"
+                            android:layout_marginTop="@dimen/_9pxv"
+                            android:layout_width="match_parent"
+                            android:lineSpacingExtra="@dimen/_1pxh"
+                            android:singleLine="true"
+                            android:text="@{signinVM.signinModel.txtPagetitle}"
+                            style="@style/txtGothicA1gothica1semibold26" tools:text="@string/lbl_sign_in"/>
+                    </LinearLayout>
+                </LinearLayout>
+                <TextView android:ellipsize="end"
+                    android:id="@+id/txtEmail"
+                    android:layout_gravity="start"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_16pxh"
+                    android:layout_marginStart="@dimen/_16pxh"
+                    android:layout_marginTop="@dimen/_98pxv"
+                    android:layout_width="wrap_content"
+                    android:lineSpacingExtra="@dimen/_1pxh"
+                    android:singleLine="true"
+                    android:text="@{signinVM.signinModel.txtEmail}"
+                    style="@style/txtGothicA1medium16" tools:text="@string/lbl_e_mail"/>
+                <EditText
+                    android:background="@drawable/rectangle_bg_gray_100_radius_24"
+                    android:ellipsize="end"
+                    android:hint="@string/lbl_e_mail"
+                    android:id="@+id/etBaseinputfie"
+                    android:inputType="textEmailAddress"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_16pxh"
+                    android:layout_marginStart="@dimen/_16pxh"
+                    android:layout_marginTop="@dimen/_9pxv"
+                    android:layout_width="match_parent"
+                    android:lineSpacingExtra="@dimen/_1pxh"
+                    android:paddingBottom="@dimen/_16pxv"
+                    android:paddingEnd="@dimen/_30pxh"
+                    android:paddingStart="@dimen/_16pxh"
+                    android:paddingTop="@dimen/_15pxv"
+                    android:singleLine="true"
+                    android:text="@={signinVM.signinModel.etBaseinputfieValue}"
+                    android:textColorHint="@color/black_900"
+                    style="@style/etSolidRounded" tools:ignore="Autofill"/>
+                <androidx.appcompat.widget.AppCompatButton
+                    android:ellipsize="end" android:gravity="center"
+                    android:id="@+id/btnContinue"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_16pxh"
+                    android:layout_marginStart="@dimen/_16pxh"
+                    android:layout_marginTop="@dimen/_98pxv"
+                    android:layout_width="match_parent"
+                    android:lineSpacingExtra="@dimen/_1pxh"
+                    android:paddingBottom="@dimen/_24pxv"
+                    android:paddingEnd="@dimen/_30pxh"
+                    android:paddingStart="@dimen/_30pxh"
+                    android:paddingTop="@dimen/_24pxv"
+                    android:singleLine="true"
+                    android:text="@string/lbl_continue"
+                    android:textAllCaps="false"
+                    style="@style/btnGradientRounded" tools:text="@string/lbl_continue"/>
+                <TextView android:ellipsize="end"
+                    android:id="@+id/txtLoremipsumdol"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_37pxv"
+                    android:layout_marginEnd="@dimen/_16pxh"
+                    android:layout_marginStart="@dimen/_16pxh"
+                    android:layout_marginTop="@dimen/_338pxv"
+                    android:layout_width="wrap_content"
+                    android:lineSpacingExtra="@dimen/_1pxh"
+                    android:singleLine="true"
+                    android:text="@{signinVM.signinModel.txtLoremipsumdol}"
+                    style="@style/txtGothicA1regular14_1" tools:text="@string/lbl_beetbazaar"/>
+            </LinearLayout>
+        </FrameLayout>
+    </LinearLayout>
+</layout>

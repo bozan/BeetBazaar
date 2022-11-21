@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable name="sellpageRowModel" type="com.beyzaozansapplication.app.modules.sellpage.data.model.SellpageRowModel"/>
+    </data>
+    <LinearLayout android:id="@+id/linearCardvertical"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent" android:orientation="horizontal">
+        <ImageView android:id="@+id/imageImage"
+            android:layout_height="@dimen/_272pxh"
+            android:layout_width="@dimen/_171pxh"
+            android:scaleType="fitXY"
+            imageRes="@{@drawable/img_image_800x390}"
+            tools:ignore="ContentDescription" tools:src="@drawable/img_image_800x390"/>
+        <LinearLayout android:gravity="start"
+            android:id="@+id/linearCopy"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_188pxv"
+            android:layout_marginEnd="@dimen/_11pxh"
+            android:layout_marginStart="@dimen/_16pxh"
+            android:layout_marginTop="@dimen/_2pxv"
+            android:layout_weight="0.48" android:layout_width="0dp" android:orientation="vertical">
+            <TextView android:ellipsize="end"
+                android:id="@+id/txtCardheadline"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_10pxh"
+                android:layout_width="match_parent"
+                android:lineSpacingExtra="@dimen/_1pxh"
+                android:singleLine="true"
+                android:text="@{sellpageRowModel.txtCardheadline}"
+                style="@style/txtGothicA1gothica1semibold16" tools:text="@string/lbl_item_1_title"/>
+            <TextView android:id="@+id/txtLanguage"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5pxv"
+                android:layout_width="match_parent"
+                android:lineSpacingExtra="@dimen/_6pxh"
+                android:text="@{sellpageRowModel.txtLanguage}"
+                style="@style/txtGothicA1regular14" tools:text="@string/msg_details_about_i"/>
+        </LinearLayout>
+    </LinearLayout>
+</layout>
