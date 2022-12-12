@@ -1,3 +1,6 @@
+import 'package:beet_bazaar_app/constants/global_variables.dart';
+import 'package:beet_bazaar_app/features/auth/screens/auth_screen.dart';
+import 'package:beet_bazaar_app/router.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,15 +15,18 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'BeetBazaar App',
-      theme: ThemeData(primarySwatch: Colors.orange),
-      home: Scaffold(
-        appBar: AppBar(title: const Text('Welcome to BeetBazaar!')),
-        body: const Center(
-          child: Text(
-            'Flutter Demo Home Page',
+      theme: ThemeData(
+          scaffoldBackgroundColor: GlobalVariables.backgroundColor,
+          colorScheme: const ColorScheme.light(
+            primary: GlobalVariables.secondaryColor,
           ),
-        ),
-      ),
+          appBarTheme: const AppBarTheme(
+              elevation: 0,
+              iconTheme: IconThemeData(
+                color: Colors.black,
+              ))),
+      onGenerateRoute: (settings) => generateRoute(settings),
+      home: const AuthScreen(), // routing to the Auth screen
     );
   }
 }
