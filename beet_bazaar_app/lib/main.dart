@@ -1,5 +1,11 @@
+import 'package:beet_bazaar_app/common/widgets/bottom_bar.dart';
 import 'package:beet_bazaar_app/constants/global_variables.dart';
 import 'package:beet_bazaar_app/features/auth/screens/auth_screen.dart';
+<<<<<<< Updated upstream
+=======
+import 'package:beet_bazaar_app/features/auth/screens/services/auth_service.dart';
+import 'package:beet_bazaar_app/providers/user_provider.dart';
+>>>>>>> Stashed changes
 import 'package:beet_bazaar_app/router.dart';
 import 'package:flutter/material.dart';
 
@@ -7,8 +13,20 @@ void main() {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class MyApp extends StatefulWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  final AuthService authService = AuthService();
+  @override
+  void initState() {
+    super.initState();
+    authService.gerUserData(context);
+  }
 
   // This widget is the root of your application.
   @override
@@ -26,7 +44,9 @@ class MyApp extends StatelessWidget {
                 color: Colors.black,
               ))),
       onGenerateRoute: (settings) => generateRoute(settings),
-      home: const AuthScreen(), // routing to the Auth screen
+      home: Provider.of<UserProvider>(context).user.token.isNotEmpty
+          ? const BottomBar()
+          : const AuthScreen(), // routing to the Auth screen
     );
   }
 }
