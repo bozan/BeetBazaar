@@ -41,6 +41,9 @@ dependencies:
   provider: ^6.0.5
   shared_preferences: ^2.0.15
   badges: ^2.0.3
+  flutter_svg: ^1.1.6
+  cached_network_image: ^3.2.3
+  material: ^1.0.0+2
 
 dev_dependencies:
   flutter_test:
