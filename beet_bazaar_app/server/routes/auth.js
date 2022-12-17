@@ -1,15 +1,10 @@
 const express = require('express');
 const User = require("../models/user");
 const bcryptjs = require('bcryptjs');
-<<<<<<< Updated upstream
-=======
 const authRouter = express.Router();
 const jwt = require('jsonwebtoken');
 const auth = require('../middlewares/auth');
->>>>>>> Stashed changes
 
-
-const authRouter = express.Router();
 
 /*authRouter.get('/user', (req, res) => {
     res.json({msg: "message"});
@@ -40,9 +35,6 @@ authRouter.post("/api/signup", async (req, res) => {
     } catch(e){
         res.status(500).json({error: e.message});
     }
-<<<<<<< Updated upstream
-    
-=======
 });
 
 //SIGN IN
@@ -71,7 +63,6 @@ authRouter.post("/api/signin", async (req, res) => {
     } catch(e){
     res.status(500).json({error: e.message});
 }
->>>>>>> Stashed changes
 });
 
 

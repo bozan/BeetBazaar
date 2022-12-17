@@ -1,16 +1,18 @@
 import 'package:beet_bazaar_app/common/widgets/bottom_bar.dart';
 import 'package:beet_bazaar_app/constants/global_variables.dart';
 import 'package:beet_bazaar_app/features/auth/screens/auth_screen.dart';
-<<<<<<< Updated upstream
-=======
 import 'package:beet_bazaar_app/features/auth/screens/services/auth_service.dart';
 import 'package:beet_bazaar_app/providers/user_provider.dart';
->>>>>>> Stashed changes
 import 'package:beet_bazaar_app/router.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MultiProvider(providers: [
+    ChangeNotifierProvider(
+      create: (context) => UserProvider(),
+    ),
+  ], child: const MyApp()));
 }
 
 class MyApp extends StatefulWidget {
@@ -32,6 +34,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'BeetBazaar App',
       theme: ThemeData(
           scaffoldBackgroundColor: GlobalVariables.backgroundColor,
