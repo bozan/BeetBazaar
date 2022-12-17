@@ -26,6 +26,9 @@ class _BottomBarState extends State<BottomBar> {
       child: Text('Search Page'),
     ),
     const AccountScreen(),
+    const Center(
+      child: Text('Account Page'),
+    ),
   ];
 
   void updatePage(int page) {
