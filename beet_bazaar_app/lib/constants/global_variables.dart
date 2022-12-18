@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 //burda kendi IP adresiniz olcak
 //String uri = 'http://<IP>:3000';
 //irfan 192.168.0.34
-//192.168.1.93
+//Elif 192.168.1.93
 String uri = 'http://192.168.1.93:3000';
 
 class GlobalVariables {

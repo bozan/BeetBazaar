@@ -1,13 +1,25 @@
 //Name surname suan static, dynamic olmasi lazim backend kisminda halletmemiz lazim, mail ve phone number da ayni sekilde
 
-import 'dart:ffi';
 import 'package:beet_bazaar_app/constants/global_variables.dart';
+import 'package:beet_bazaar_app/features/account/screens/my_product_screen.dart';
 import 'package:beet_bazaar_app/features/account/widgets/custom_product_button.dart';
 import 'package:beet_bazaar_app/features/account/widgets/delete_user_button.dart';
 import 'package:flutter/material.dart';
 
-class AccountScreen extends StatelessWidget {
-  const AccountScreen({super.key});
+
+class AccountScreen extends StatefulWidget {
+  static const String routeName = '/account';
+  const AccountScreen({Key? key}) : super(key: key);
+
+  @override
+  // ignore: library_private_types_in_public_api
+  _AccountScreenState createState() => _AccountScreenState();
+}
+class _AccountScreenState extends State<AccountScreen> {
+
+  void navigateToMyProductScreen() {
+    Navigator.pushNamed(context, MyProductScreen.routeName);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -176,11 +188,9 @@ class AccountScreen extends StatelessWidget {
               ),
               customProductButton(
                 text: 'MY PRODUCTS',
-                onTap: () => {
-                  print(
-                      'products'), //buraya basinca productlara git fonksiyonu gelcek
-                },
+                onTap: navigateToMyProductScreen,
               ),
+              // ignore: prefer_const_constructors
               Container(
                 padding: EdgeInsets.only(top: height / 4, left: width / 4),
                 child: Column(
