@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 //String uri = 'http://<IP>:3000';
 //irfan 192.168.0.34
 //Elif 192.168.1.93
-String uri = 'http://192.168.1.93:3000';
+//Beyza 192.168.1.85
+String uri = 'http://192.168.1.85:3000';
 
 class GlobalVariables {
   // COLORS
@@ -41,23 +42,23 @@ class GlobalVariables {
   static const List<Map<String, String>> categoryImages = [
     {
       'title': 'Mobiles',
-      'image': 'beet_bazaar_app/assets/images/appliances.jpeg',
+      'image': 'assets/images/mobiles.jpeg',
     },
     {
       'title': 'Essentials',
-      'image': '/Users/elifarikan/Desktop/beetBazaar/BeetBazaar/beet_bazaar_app/assets/images/essentials.jpeg',
+      'image': 'assets/images/essentials.jpeg',
     },
     {
       'title': 'Appliances',
-      'image': '/Users/elifarikan/Desktop/beetBazaar/BeetBazaar/beet_bazaar_app/assets/images/appliances.jpeg',
+      'image': 'assets/images/appliances.jpeg',
     },
     {
       'title': 'Books',
-      'image': '/Users/elifarikan/Desktop/beetBazaar/BeetBazaar/beet_bazaar_app/assets/images/books.jpeg',
+      'image': 'assets/images/books.jpeg',
     },
     {
       'title': 'Fashion',
-      'image': '/Users/elifarikan/Desktop/beetBazaar/BeetBazaar/beet_bazaar_app/assets/images/fashion.jpeg',
+      'image': 'assets/images/fashion.jpeg',
     },
   ];
 }
