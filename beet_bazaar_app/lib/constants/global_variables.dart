@@ -41,7 +41,7 @@ class GlobalVariables {
   static const List<Map<String, String>> categoryImages = [
     {
       'title': 'Mobiles',
-      'image': '/Users/elifarikan/Desktop/beetBazaar/BeetBazaar/beet_bazaar_app/assets/images/mobiles.jpeg',
+      'image': 'beet_bazaar_app/assets/images/appliances.jpeg',
     },
     {
       'title': 'Essentials',
