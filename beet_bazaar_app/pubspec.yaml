@@ -45,6 +45,8 @@ dependencies:
   cached_network_image: ^3.2.3
   material: ^1.0.0+2
   carousel_slider: ^4.2.1
+  file_picker: ^5.2.4
+  dotted_border: ^2.0.0+3
 
 dev_dependencies:
   flutter_test:
