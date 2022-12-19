@@ -1,9 +1,12 @@
 const express = require('express');
-const User = require("../models/user");
-const bcryptjs = require('bcryptjs');
 const authRouter = express.Router();
-const jwt = require('jsonwebtoken');
 const auth = require('../middlewares/auth');
+const User = require("../models/user");
+const Product = require("../models/product");
+
+const bcryptjs = require('bcryptjs');
+const jwt = require('jsonwebtoken');
+
 
 
 /*authRouter.get('/user', (req, res) => {
@@ -86,6 +89,26 @@ authRouter.post("/tokenIsValid", async (req, res) => {
 authRouter.get('/', auth, async (req, res) => {
     const user = await User.findById(req.user);
     res.json({...user._doc, token: req.token});
+});
+
+//add product
+authRouter.post('/add-product', auth, async (req, res) => {
+    try{
+        const {name, description, image, quantity, price, category} = req.body;
+        let product = new Product({
+            name,
+            description,
+            image,
+            quantity,
+            price,
+            category,
+        });
+        product = await product.save();
+        res.json(product);
+    } 
+    catch(e){
+        res.status(500).json({error: e.message});
+    }
 });
 
 module.exports = authRouter;

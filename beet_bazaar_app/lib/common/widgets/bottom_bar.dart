@@ -1,6 +1,7 @@
 import 'package:badges/badges.dart';
 import 'package:beet_bazaar_app/constants/global_variables.dart';
 import 'package:beet_bazaar_app/features/account/screens/account_screen.dart';
+import 'package:beet_bazaar_app/features/account/screens/my_product_screen.dart';
 import 'package:beet_bazaar_app/features/home/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -29,6 +30,8 @@ class _BottomBarState extends State<BottomBar> {
     const Center(
       child: Text('Account Page'),
     ),
+    const MyProductScreen()
+    
   ];
 
   void updatePage(int page) {
