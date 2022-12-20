@@ -11,6 +11,12 @@
             "type": "dart"
         },
         {
+            "name": "beet_bazaar_backend",
+            "cwd": "beet_bazaar_app",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
             "name": "beet_bazaar_app (profile mode)",
             "cwd": "beet_bazaar_app",
             "request": "launch",
