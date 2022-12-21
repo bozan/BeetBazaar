@@ -1,6 +1,6 @@
 import 'package:beet_bazaar_app/constants/global_variables.dart';
 import 'package:beet_bazaar_app/features/account/services/seller_services.dart';
-import 'package:beet_bazaar_app/models/prouduct.dart';
+import 'package:beet_bazaar_app/models/product.dart';
 import 'package:flutter/material.dart';
 import 'package:beet_bazaar_app/common/widgets/bottom_bar.dart';
 import '../../../common/widgets/loader.dart';
