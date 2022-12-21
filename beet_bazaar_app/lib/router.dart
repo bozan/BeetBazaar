@@ -6,6 +6,8 @@ import 'package:beet_bazaar_app/features/home/screens/category_deals_screen.dart
 import 'package:beet_bazaar_app/features/home/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 
+import 'features/search/screens/search_screen.dart';
+
 Route<dynamic> generateRoute(RouteSettings routeSettings) {
   // give us any data that is useful in constructing a route
   switch (routeSettings.name) {
@@ -42,6 +44,14 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
         ),
       );
 
+    case SearchScreen.routeName:
+      var searchQuery = routeSettings.arguments as String;
+      return MaterialPageRoute(
+        settings: routeSettings,
+        builder: (_) => SearchScreen(
+          searchQuery: searchQuery,
+        ),
+      );
     case BottomBar.routeName:
       return MaterialPageRoute(
         settings: routeSettings,
