@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 
 //IMPORTS FROM OTHER FILES
 const authRouter = require('./routes/auth');
+const productRouter = require('./routes/product');
 //import './features/auth/screens/auth_screen.dart'
 
 //INIT
@@ -12,9 +13,11 @@ const app = express();
 const DB = "mongodb+srv://irfan:6uqIwfaWHBS5Q973@cluster0.vkerbhn.mongodb.net/?retryWrites=true&w=majority"; 
 
 //middleware
-//CLITEN -> middleware -> SERVER -> CLIENT
+//CLIENT -> middleware -> SERVER -> CLIENT
 app.use(express.json());
 app.use(authRouter);
+app.use(productRouter);
+
 
 //connections
 mongoose.connect(DB).then(() => {
