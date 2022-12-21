@@ -2,7 +2,7 @@ const express = require('express');
 const authRouter = express.Router();
 const auth = require('../middlewares/auth');
 const User = require("../models/user");
-const Product = require("../models/product");
+const{ Product } = require("../models/product");
 
 const bcryptjs = require('bcryptjs');
 const jwt = require('jsonwebtoken');
@@ -94,11 +94,11 @@ authRouter.get('/', auth, async (req, res) => {
 //add product
 authRouter.post('/add-product', auth, async (req, res) => {
     try{
-        const {name, description, image, quantity, price, category} = req.body;
+        const {name, description, images, quantity, price, category} = req.body;
         let product = new Product({
             name,
             description,
-            image,
+            images,
             quantity,
             price,
             category,
@@ -122,4 +122,14 @@ authRouter.get('/get-products', auth, async (req, res) => {
     }
 })
 
+// Delete the product
+authRouter.post('/delete-product', auth, async (req, res) => {
+    try {
+        const { id } = req.body;
+        let product = await Product.findByIdAndDelete(id);
+        res.json(product);
+    } catch (e) {
+        res.status(500).json({error: e.message});
+    }
+});
 module.exports = authRouter;
