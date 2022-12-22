@@ -4,6 +4,8 @@ import 'package:beet_bazaar_app/features/account/screens/my_product_screen.dart'
 import 'package:beet_bazaar_app/features/auth/screens/auth_screen.dart';
 import 'package:beet_bazaar_app/features/home/screens/category_deals_screen.dart';
 import 'package:beet_bazaar_app/features/home/screens/home_screen.dart';
+import 'package:beet_bazaar_app/features/product_details/screens/product_details_screen.dart';
+import 'package:beet_bazaar_app/models/product.dart';
 import 'package:flutter/material.dart';
 
 import 'features/search/screens/search_screen.dart';
@@ -52,6 +54,16 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
           searchQuery: searchQuery,
         ),
       );
+
+    case ProductDetailScreen.routeName:
+      var product = routeSettings.arguments as Product;
+      return MaterialPageRoute(
+        settings: routeSettings,
+        builder: (_) => ProductDetailScreen(
+          product: product,
+        ),
+      );
+
     case BottomBar.routeName:
       return MaterialPageRoute(
         settings: routeSettings,
