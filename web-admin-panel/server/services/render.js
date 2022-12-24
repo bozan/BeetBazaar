@@ -1,6 +1,6 @@
 const axios = require('axios');
 
-
+// USER
 exports.homeRoutes = (req, res) => {
     // Make a get request to /api/users
     axios.get('http://localhost:3000/api/users')
@@ -9,9 +9,7 @@ exports.homeRoutes = (req, res) => {
         })
         .catch(err =>{
             res.send(err);
-        })
-
-    
+        })  
 }
 
 exports.add_user = (req, res) =>{
@@ -26,4 +24,15 @@ exports.update_user = (req, res) =>{
         .catch(err =>{
             res.send(err);
         })
+}
+// PRODUCT
+exports.homeProducts = (req, res) => {
+    // Make a get request to /api/products
+    axios.get('http://localhost:3000/api/products')
+        .then(function(response){
+            res.render('index_product', { products : response.data });
+        })
+        .catch(err =>{
+            res.send(err);
+        })  
 }

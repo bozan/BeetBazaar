@@ -57,9 +57,7 @@ exports.find = (req, res)=>{
             .catch(err => {
                 res.status(500).send({ message : err.message || "Error Occurred while retriving user information" })
             })
-    }
-
-    
+    }   
 }
 
 // Update a new idetified user by user id

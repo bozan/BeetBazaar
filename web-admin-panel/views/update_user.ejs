@@ -17,16 +17,16 @@
 
         <!-- add user form -->
          <!-- form handling -->
- <form method="POST" id="update_user">
+ <form method="PUT" id="update_user">
     <div class="new_user">
         <div class="form-group">
             <label for="name" class="text-light">Name</label>
             <input type="hidden" name="id" value="<%= user._id %>">
-            <input type="text" name="name" value="<%= user.name %>" placeholder="Mark Stoenis">
+            <input type="text" name="name" value="<%= user.name %>" placeholder="">
         </div>
         <div class="form-group">
             <label for="Email" class="text-light">Email</label>
-            <input type="text" name="email" value="<%= user.email%>" placeholder="example@gmail.com">
+            <input type="text" name="email" value="<%= user.email%>" placeholder="">
         </div>
         
         <div class="form-group">
