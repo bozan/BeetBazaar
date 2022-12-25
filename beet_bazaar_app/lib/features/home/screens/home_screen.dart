@@ -24,7 +24,6 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     final user = Provider.of<UserProvider>(context).user;
-
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: PreferredSize(

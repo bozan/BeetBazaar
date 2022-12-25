@@ -2,8 +2,11 @@ import 'package:badges/badges.dart';
 import 'package:beet_bazaar_app/constants/global_variables.dart';
 import 'package:beet_bazaar_app/features/account/screens/account_screen.dart';
 import 'package:beet_bazaar_app/features/account/screens/my_product_screen.dart';
+import 'package:beet_bazaar_app/features/favs/screens/favs_screen.dart';
 import 'package:beet_bazaar_app/features/home/screens/home_screen.dart';
+import 'package:beet_bazaar_app/providers/user_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class BottomBar extends StatefulWidget {
   static const String routeName = '/actual-home';
@@ -20,18 +23,12 @@ class _BottomBarState extends State<BottomBar> {
 
   List<Widget> pages = [
     const HomeScreen(),
-    const Center(
-      child: Text('Favourites Page'),
-    ),
+    const FavsScreen(),
     const Center(
       child: Text('Search Page'),
     ),
     const AccountScreen(),
-    const Center(
-      child: Text('Account Page'),
-    ),
-    const MyProductScreen()
-    
+    const MyProductScreen(),
   ];
 
   void updatePage(int page) {
@@ -42,6 +39,7 @@ class _BottomBarState extends State<BottomBar> {
 
   @override
   Widget build(BuildContext context) {
+    final userFavsLen = context.watch<UserProvider>().user.favs.length;
     return Scaffold(
       body: pages[_page],
       bottomNavigationBar: BottomNavigationBar(
@@ -88,7 +86,7 @@ class _BottomBarState extends State<BottomBar> {
               ),
               child: Badge(
                 elevation: 0,
-                badgeContent: const Text('2'),
+                badgeContent: Text(userFavsLen.toString()),
                 badgeColor: Colors.white,
                 child: const Icon(
                   Icons.favorite_outline_outlined,

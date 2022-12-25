@@ -1,5 +1,6 @@
 import 'package:beet_bazaar_app/common/widgets/custom_button.dart';
 import 'package:beet_bazaar_app/constants/global_variables.dart';
+import 'package:beet_bazaar_app/features/product_details/services/product_details_services.dart';
 import 'package:beet_bazaar_app/features/search/screens/search_screen.dart';
 import 'package:beet_bazaar_app/models/product.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -20,8 +21,15 @@ class ProductDetailScreen extends StatefulWidget {
 }
 
 class _ProductDetailScreenState extends State<ProductDetailScreen> {
+  final ProductDetailsServices productDetailsServices =
+      ProductDetailsServices();
+
   void navigateToSearchScreen(String query) {
     Navigator.pushNamed(context, SearchScreen.routeName, arguments: query);
+  }
+
+  void addToFavs() {
+    productDetailsServices.addToFavs(context: context, product: widget.product);
   }
 
   @override
@@ -193,7 +201,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
               padding: const EdgeInsets.all(10),
               child: CustomButton(
                 text: 'Add to Favorite',
-                onTap: () {}, //addToCart,
+                onTap: addToFavs, //addToCart,
                 color: Colors.orange,
               ),
             ),
