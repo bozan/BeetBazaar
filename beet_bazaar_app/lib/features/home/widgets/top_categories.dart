@@ -31,7 +31,7 @@ class TopCategories extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(horizontal: 10),
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(50),
-                      child: Image.asset(
+                      child: Image.network(
                         GlobalVariables.categoryImages[index]['image']!,
                         fit: BoxFit.cover,
                         height: 40,
