@@ -4,6 +4,7 @@ import 'package:beet_bazaar_app/features/account/screens/account_screen.dart';
 import 'package:beet_bazaar_app/features/account/screens/my_product_screen.dart';
 import 'package:beet_bazaar_app/features/favs/screens/favs_screen.dart';
 import 'package:beet_bazaar_app/features/home/screens/home_screen.dart';
+import 'package:beet_bazaar_app/features/search/screens/search_screen.dart';
 import 'package:beet_bazaar_app/providers/user_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -24,9 +25,7 @@ class _BottomBarState extends State<BottomBar> {
   List<Widget> pages = [
     const HomeScreen(),
     const FavsScreen(),
-    const Center(
-      child: Text('Search Page'),
-    ),
+    const SearchScreen(searchQuery: 'aaa'),
     const AccountScreen(),
     const MyProductScreen(),
   ];

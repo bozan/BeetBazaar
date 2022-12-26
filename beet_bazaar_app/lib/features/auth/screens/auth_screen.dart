@@ -1,7 +1,7 @@
 import 'package:beet_bazaar_app/common/widgets/custom_button.dart';
 import 'package:beet_bazaar_app/common/widgets/custom_textfield.dart';
 import 'package:beet_bazaar_app/constants/global_variables.dart';
-import 'package:beet_bazaar_app/features/auth/screens/services/auth_service.dart';
+import 'package:beet_bazaar_app/features/auth/services/auth_service.dart';
 import 'package:flutter/material.dart';
 
 enum Auth {
@@ -117,8 +117,9 @@ class _AuthScreenState extends State<AuthScreen> {
                         CustomButton(
                           text: 'Sign Up',
                           onTap: () {
-                            if (_signUpFormKey.currentState!.validate())
+                            if (_signUpFormKey.currentState!.validate()) {
                               signUpUser();
+                            }
                           },
                         ),
                       ],
@@ -168,8 +169,9 @@ class _AuthScreenState extends State<AuthScreen> {
                         CustomButton(
                           text: 'Sign In',
                           onTap: () {
-                            if (_signInFormKey.currentState!.validate())
+                            if (_signInFormKey.currentState!.validate()) {
                               signInUser();
+                            }
                           },
                         ),
                       ],

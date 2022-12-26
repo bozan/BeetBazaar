@@ -15,7 +15,9 @@ userRouter.post('/api/add-to-favs', auth, async (req, res) => {
         for (let i = 0; i < user.favs.length; i++) {
             // check if product is already in favs, but compare two id objects, not strings
             if (user.favs[i].product._id.equals(product._id)) {
-                return res.json(user);
+                return res
+                .status(400)
+                .json({msg: "Product already in favorites!"});
             }
         }
         user.favs.push({ product, quantity: 1 });

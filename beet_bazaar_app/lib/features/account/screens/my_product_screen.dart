@@ -1,5 +1,7 @@
 import 'package:beet_bazaar_app/constants/global_variables.dart';
 import 'package:beet_bazaar_app/features/account/services/seller_services.dart';
+import 'package:beet_bazaar_app/features/product_details/screens/product_details_screen.dart';
+import 'package:beet_bazaar_app/features/search/widget/searched_product.dart';
 import 'package:beet_bazaar_app/models/product.dart';
 import 'package:flutter/material.dart';
 import 'package:beet_bazaar_app/common/widgets/bottom_bar.dart';
@@ -61,7 +63,7 @@ class _MyProductScreenState extends State<MyProductScreen> {
                   ),
                 ),
                 title: const Text(
-                  'My Product',
+                  'My Products',
                   style: TextStyle(
                     color: Colors.black,
                   ),
@@ -74,41 +76,57 @@ class _MyProductScreenState extends State<MyProductScreen> {
                   crossAxisCount: 2), // bunu 1 yap!
               itemBuilder: (context, index) {
                 final productData = products![index];
-                return Column(
-                  children: [
-                    SizedBox(
-                      height: 120,
-                      child: SingleProduct(
-                        image: productData.images[0],
-                      ),
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                return GestureDetector(
+                    onTap: () {
+                      Navigator.pushNamed(
+                        context,
+                        ProductDetailScreen.routeName,
+                        arguments: products![index],
+                      );
+                    },
+                    child: Column(
                       children: [
-                        Expanded(
-                          child: Text(
-                            productData.name,
-                            overflow: TextOverflow.ellipsis,
-                            maxLines: 2,
+                        const SizedBox(
+                          height: 5,
+                        ),
+                        SizedBox(
+                          height: 120,
+                          child: SingleProduct(
+                            image: productData.images[0],
                           ),
                         ),
-                        IconButton(
-                          onPressed: () => deleteProduct(productData, index),
-                          icon: const Icon(
-                            Icons.delete_outline,
-                          ),
-                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Expanded(
+                              child: Text(
+                                productData.name,
+                                overflow: TextOverflow.ellipsis,
+                                maxLines: 2,
+                                textAlign: TextAlign.center,
+                                style: const TextStyle(
+                                  fontSize: 16,
+                                ),
+                              ),
+                            ),
+                            IconButton(
+                              onPressed: () =>
+                                  deleteProduct(productData, index),
+                              icon: const Icon(
+                                Icons.delete_outline,
+                              ),
+                            ),
+                          ],
+                        )
                       ],
-                    )
-                  ],
-                );
+                    ));
               },
             ),
             floatingActionButton: FloatingActionButton(
-              child: const Icon(Icons.add),
-              backgroundColor: Color.fromARGB(255, 230, 89, 23),
+              backgroundColor: const Color.fromARGB(255, 230, 89, 23),
               onPressed: navigateToAddProductScreen,
               tooltip: 'Add a Product',
+              child: const Icon(Icons.add),
             ),
             floatingActionButtonLocation:
                 FloatingActionButtonLocation.centerFloat,

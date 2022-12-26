@@ -3,10 +3,12 @@ import 'package:beet_bazaar_app/constants/global_variables.dart';
 import 'package:beet_bazaar_app/features/product_details/services/product_details_services.dart';
 import 'package:beet_bazaar_app/features/search/screens/search_screen.dart';
 import 'package:beet_bazaar_app/models/product.dart';
+import 'package:beet_bazaar_app/providers/user_provider.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:beet_bazaar_app/common/widgets/stars.dart';
+import 'package:provider/provider.dart';
 
 class ProductDetailScreen extends StatefulWidget {
   static const String routeName = '/product-details';
@@ -34,6 +36,8 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final user = context.watch<UserProvider>().user;
+    //final product = context.watch<Pr>().user;
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(60),
@@ -87,7 +91,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                             width: 1,
                           ),
                         ),
-                        hintText: 'Search Amazon.in',
+                        hintText: 'Search Product',
                         hintStyle: const TextStyle(
                           fontWeight: FontWeight.w500,
                           fontSize: 17,
@@ -112,26 +116,13 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    widget.product.id!,
-                  ),
-                  // Stars(
-                  //   rating: avgRating,
-                  // ),
-                ],
-              ),
-            ),
-            Padding(
               padding: const EdgeInsets.symmetric(
                 vertical: 20,
                 horizontal: 10,
               ),
               child: Text(
-                widget.product.name,
+                // TODO: add product seller name here
+                '${widget.product.name} by ${widget.product.name}',
                 style: const TextStyle(
                   fontSize: 15,
                 ),
@@ -196,7 +187,8 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                 right: 10,
               ),
               child: CustomButton(
-                text: 'Call',
+                // TODO: Add user data to the product and display it here
+                text: 'Seller contact: ${widget.product.id}',
                 onTap: () {},
               ),
             ),
