@@ -186,23 +186,29 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
               child: Text(widget.product.description),
             ),
             Container(
-              color: Colors.black12,
+              color: Colors.white,
               height: 5,
             ),
             Padding(
-              padding: const EdgeInsets.all(10),
+              padding: const EdgeInsets.only(
+                top: 10,
+                left: 10,
+                right: 10,
+              ),
               child: CustomButton(
                 text: 'Call',
-                onTap: () {}, // show phone number of product owner
+                onTap: () {},
               ),
             ),
-            const SizedBox(height: 10),
             Padding(
-              padding: const EdgeInsets.all(10),
+              padding: const EdgeInsets.only(
+                top: 10,
+                left: 10,
+                right: 10,
+              ),
               child: CustomButton(
                 text: 'Add to Favorite',
                 onTap: addToFavs, //addToCart,
-                color: Colors.orange,
               ),
             ),
             const SizedBox(height: 10),
