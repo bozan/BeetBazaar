@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 //irfan 192.168.0.34
 //Elif 192.168.1.93
 //Beyza 192.168.1.49
+// serra: 192.169.1.72
 String uri = 'http://localhost:3000';
 
 class GlobalVariables {
@@ -27,7 +28,7 @@ class GlobalVariables {
   static const secondaryColor = Color.fromRGBO(255, 153, 0, 1);
   static const backgroundColor = Colors.white;
   static const Color greyBackgroundCOlor = Color(0xffebecee);
-  static var selectedNavBarColor = Color.fromARGB(255, 249, 137, 17)!;
+  static var selectedNavBarColor = const Color.fromARGB(255, 249, 137, 17);
   static const unselectedNavBarColor = Colors.black87;
 
   // STATIC IMAGES

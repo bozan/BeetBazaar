@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-class deleteUserButton extends StatelessWidget {
+class DeleteUserButton extends StatelessWidget {
   final String text;
   final VoidCallback onTap;
-  const deleteUserButton({
+  const DeleteUserButton({
     super.key,
     required this.text,
     required this.onTap,
@@ -18,10 +18,10 @@ class deleteUserButton extends StatelessWidget {
       ),
       onPressed: onTap,
       style: ElevatedButton.styleFrom(
-          shape: StadiumBorder(),
+          shape: const StadiumBorder(),
           minimumSize: const Size(200, 60),
           maximumSize: const Size(double.infinity, 60),
-          backgroundColor: Color.fromARGB(255, 253, 51, 51),
+          backgroundColor: const Color.fromARGB(255, 253, 51, 51),
           textStyle: const TextStyle(fontSize: 17)),
     );
   }

@@ -77,7 +77,7 @@ class _MyProductScreenState extends State<MyProductScreen> {
                 return Column(
                   children: [
                     SizedBox(
-                      height: 140,
+                      height: 120,
                       child: SingleProduct(
                         image: productData.images[0],
                       ),

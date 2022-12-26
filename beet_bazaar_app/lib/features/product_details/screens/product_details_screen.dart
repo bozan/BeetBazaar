@@ -1,5 +1,6 @@
 import 'package:beet_bazaar_app/common/widgets/custom_button.dart';
 import 'package:beet_bazaar_app/constants/global_variables.dart';
+import 'package:beet_bazaar_app/features/product_details/services/product_details_services.dart';
 import 'package:beet_bazaar_app/features/search/screens/search_screen.dart';
 import 'package:beet_bazaar_app/models/product.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -20,8 +21,15 @@ class ProductDetailScreen extends StatefulWidget {
 }
 
 class _ProductDetailScreenState extends State<ProductDetailScreen> {
+  final ProductDetailsServices productDetailsServices =
+      ProductDetailsServices();
+
   void navigateToSearchScreen(String query) {
     Navigator.pushNamed(context, SearchScreen.routeName, arguments: query);
+  }
+
+  void addToFavs() {
+    productDetailsServices.addToFavs(context: context, product: widget.product);
   }
 
   @override
@@ -178,23 +186,29 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
               child: Text(widget.product.description),
             ),
             Container(
-              color: Colors.black12,
+              color: Colors.white,
               height: 5,
             ),
             Padding(
-              padding: const EdgeInsets.all(10),
+              padding: const EdgeInsets.only(
+                top: 10,
+                left: 10,
+                right: 10,
+              ),
               child: CustomButton(
                 text: 'Call',
-                onTap: () {}, // show phone number of product owner
+                onTap: () {},
               ),
             ),
-            const SizedBox(height: 10),
             Padding(
-              padding: const EdgeInsets.all(10),
+              padding: const EdgeInsets.only(
+                top: 10,
+                left: 10,
+                right: 10,
+              ),
               child: CustomButton(
                 text: 'Add to Favorite',
-                onTap: () {}, //addToCart,
-                color: Colors.orange,
+                onTap: addToFavs, //addToCart,
               ),
             ),
             const SizedBox(height: 10),
