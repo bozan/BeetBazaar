@@ -1,4 +1,3 @@
-import 'package:beet_bazaar_app/common/widgets/stars.dart';
 import 'package:beet_bazaar_app/models/product.dart';
 import 'package:flutter/material.dart';
 

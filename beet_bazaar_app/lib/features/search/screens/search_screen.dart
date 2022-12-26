@@ -4,7 +4,7 @@ import 'package:beet_bazaar_app/features/product_details/screens/product_details
 import 'package:beet_bazaar_app/features/search/widget/searched_product.dart';
 import 'package:beet_bazaar_app/models/product.dart';
 import 'package:flutter/material.dart';
-import 'services/search_services.dart';
+import '../services/search_services.dart';
 
 class SearchScreen extends StatefulWidget {
   static const String routeName = '/search-screen';
