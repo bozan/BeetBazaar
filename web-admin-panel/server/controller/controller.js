@@ -1,20 +1,19 @@
-var User = require('../model/user');
+const User = require('../model/user');
 
 
 // create and save new user
-exports.create = (req,res)=>{
-    // validate request
-    if(!req.body){
-        res.status(400).send({ message : "Content can not be emtpy!"});
-        return;
+exports.create = (req,res) => {
+    const {name, email, password} = req.body;
+    if (!req.body) {
+        return res.status(400).send({ message : "Content can not be emtpy!" });
     }
 
     // new user
     const user = new User({
-        name : req.body.name,
-        email : req.body.email,
-        password: req.body.password,
-    })
+        name,
+        email,
+        password,
+    });
 
     // save user in the database
     user
@@ -24,61 +23,55 @@ exports.create = (req,res)=>{
             res.redirect('/add-user');
         })
         .catch(err =>{
-            res.status(500).send({
-                message : err.message || "Some error occurred while creating a create operation"
+            return res.status(500).json({ message : err.message || "Some error occurred while creating a create operation" });
             });
-        });
 
-}
-
+        }
 // retrieve and return all users/ retrive and return a single user
 exports.find = (req, res)=>{
 
-    if(req.query.id){
-        const id = req.query.id;
-
+    const { id } = req.query;
+    if (id) {
         User.findById(id)
             .then(data =>{
                 if(!data){
-                    res.status(404).send({ message : "Not found user with id "+ id})
+                    return res.status(404).json({ message : "Not found user with id "+ id });
                 }else{
-                    res.send(data)
+                    return res.status(200).json(data)
                 }
             })
             .catch(err =>{
-                res.status(500).send({ message: "Erro retrieving user with id " + id})
+                return res.status(500).json({ message: `Erro retrieving user with id ${id}` });
             })
 
     }else{
         User.find()
             .then(user => {
-                res.send(user)
+                return res.status(200).json(user);
             })
             .catch(err => {
-                res.status(500).send({ message : err.message || "Error Occurred while retriving user information" })
+                return res.status(500).json({ message : err.message || "Error Occurred while retriving user information" });
             })
     }   
 }
 
 // Update a new idetified user by user id
-exports.update = (req, res)=>{
-    if(!req.body){
-        return res
-            .status(400)
-            .send({ message : "Data to update can not be empty"})
+exports.update = (req, res) => {
+    if (!req.body) {
+        return res.status(400).json({ message : "Data to update can not be empty"})
     }
 
     const id = req.params.id;
-    User.findByIdAndUpdate(id, req.body, { useFindAndModify: false})
+    User.findByIdAndUpdate(id, req.body,)
         .then(data => {
-            if(!data){
-                res.status(404).send({ message : `Cannot Update user with ${id}. Maybe user not found!`})
-            }else{
-                res.send(data)
+            if (!data) {
+                return res.status(404).json({ message : `Cannot Update user with ${id}. Maybe user not found!`})
+            } else {
+                return res.status(200).json(data);
             }
         })
         .catch(err =>{
-            res.status(500).send({ message : "Error Update user information"})
+            return res.status(500).json({ message : "Error Update user information" });
         })
 }
 
@@ -88,17 +81,13 @@ exports.delete = (req, res)=>{
 
     User.findByIdAndDelete(id)
         .then(data => {
-            if(!data){
-                res.status(404).send({ message : `Cannot Delete with id ${id}. Maybe id is wrong`})
-            }else{
-                res.send({
-                    message : "User was deleted successfully!"
-                })
+            if (!data) {
+                return res.status(404).json({ message : `Cannot Delete with id ${id}. Maybe id is wrong`});
+            } else {
+                return res.status(200).json({ message : "User was deleted successfully!" });
             }
         })
         .catch(err =>{
-            res.status(500).send({
-                message: "Could not delete User with id=" + id
-            });
+            return res.status(500).json({ message: `Could not delete User with id=${id}` });
         });
 }
