@@ -43,23 +43,28 @@ class GlobalVariables {
   static const List<Map<String, String>> categoryImages = [
     {
       'title': 'Mobiles',
-      'image': 'assets/images/mobiles.jpeg',
+      'image': 'https://res.cloudinary.com/dpnhaucpu/image/upload/v1672056933/xcyvgzz4ztubbfwcatzd.jpg',
     },
     {
       'title': 'Essentials',
-      'image': 'assets/images/essentials.jpeg',
+      'image': 'https://res.cloudinary.com/dpnhaucpu/image/upload/v1672056933/ijeajvsmw6wk72unszse.jpg',
     },
     {
       'title': 'Appliances',
-      'image': 'assets/images/appliances.jpeg',
+      'image': 'https://res.cloudinary.com/dpnhaucpu/image/upload/v1672056933/pshvevcjrstadtaqjso5.jpg',
     },
     {
-      'title': 'Books',
-      'image': 'assets/images/books.jpeg',
+      'title': 'Hobies',
+      'image': 'https://res.cloudinary.com/dpnhaucpu/image/upload/v1672056933/w6ccprdhlgeunhrejlgj.jpg',
     },
     {
       'title': 'Fashion',
-      'image': 'assets/images/fashion.jpeg',
+      'image': 'https://res.cloudinary.com/dpnhaucpu/image/upload/v1672056933/jo0zmddwfcasoc9ijuss.jpg',
     },
+    {
+      'title': 'Electronics',
+      'image': 'https://res.cloudinary.com/dpnhaucpu/image/upload/v1672056933/lzijtbctydsrwoywlo8j.jpg',
+    },
+
   ];
 }

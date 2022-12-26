@@ -44,8 +44,9 @@ class _AddProductScreenState extends State<AddProductScreen> {
     'Mobiles',
     'Essentials',
     'Appliances',
-    'Books',
-    'Fashion'
+    'Hobies',
+    'Fashion',
+    'Electronics'
   ];
 
   void sellProduct() {
