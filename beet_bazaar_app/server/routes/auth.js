@@ -94,7 +94,7 @@ authRouter.get('/', auth, async (req, res) => {
 //add product
 authRouter.post('/add-product', auth, async (req, res) => {
     try{
-        const {name, description, images, quantity, price, category} = req.body;
+        const {name, description, images, quantity, price, category, sellerName} = req.body;
         let product = new Product({
             name,
             description,
@@ -102,6 +102,7 @@ authRouter.post('/add-product', auth, async (req, res) => {
             quantity,
             price,
             category,
+            sellerName,
         });
         product = await product.save();
         res.json(product);

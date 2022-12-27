@@ -40,6 +40,15 @@ const userSchema = mongoose.Schema({
             },
         },
     ],
+    // sellingItems: [
+    //     {
+    //         product: productSchema,
+    //         quantity: {
+    //             type: Number,
+    //             required: true,
+    //         },
+    //     },
+    // ],
 })
 
 

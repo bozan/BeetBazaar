@@ -5,7 +5,6 @@ import 'package:beet_bazaar_app/constants/error_handling.dart';
 import 'package:beet_bazaar_app/constants/global_variables.dart';
 import 'package:beet_bazaar_app/constants/utils.dart';
 import 'package:beet_bazaar_app/models/product.dart';
-import 'package:beet_bazaar_app/models/user.dart';
 import 'package:beet_bazaar_app/providers/user_provider.dart';
 import 'package:cloudinary_public/cloudinary_public.dart';
 import 'package:flutter/material.dart';
@@ -20,8 +19,10 @@ class SellerServices {
     required double price,
     required double quantity,
     required String category,
+    required String sellerName,
     required List<File> images,
   }) async {
+    final user = context.watch<UserProvider>().user;
     final userProvider = Provider.of<UserProvider>(context, listen: false);
     try {
       final cloudinary = CloudinaryPublic('dpnhaucpu', 'r44xtgqf');
@@ -37,10 +38,11 @@ class SellerServices {
       Product product = Product(
         name: name,
         description: description,
-        price: price,
-        quantity: quantity,
-        category: category,
         images: imageUrls,
+        quantity: quantity,
+        price: price,
+        category: category,
+        sellerName: sellerName,
       );
 
       http.Response res = await http.post(Uri.parse('$uri/add-product'),

@@ -7,6 +7,7 @@ class Product {
   final double quantity;
   final double price;
   final String category;
+  final String sellerName;
   final String? id;
   Product({
     required this.name,
@@ -15,6 +16,7 @@ class Product {
     required this.quantity,
     required this.price,
     required this.category,
+    required this.sellerName,
     this.id,
   });
 
@@ -26,6 +28,7 @@ class Product {
       'quantity': quantity,
       'price': price,
       'category': category,
+      'sellerName': sellerName,
       'id': id,
     };
   }
@@ -38,6 +41,7 @@ class Product {
       quantity: map['quantity']?.toDouble() ?? 0.0,
       price: map['price']?.toDouble() ?? 0.0,
       category: map['category'] ?? '',
+      sellerName: map['sellerName'] ?? 'Unknown Seller',
       id: map['_id'],
     );
   }
