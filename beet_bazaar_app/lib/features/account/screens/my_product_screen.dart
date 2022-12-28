@@ -1,10 +1,8 @@
 import 'package:beet_bazaar_app/constants/global_variables.dart';
 import 'package:beet_bazaar_app/features/account/services/seller_services.dart';
 import 'package:beet_bazaar_app/features/product_details/screens/product_details_screen.dart';
-import 'package:beet_bazaar_app/features/search/widget/searched_product.dart';
 import 'package:beet_bazaar_app/models/product.dart';
 import 'package:flutter/material.dart';
-import 'package:beet_bazaar_app/common/widgets/bottom_bar.dart';
 import '../../../common/widgets/loader.dart';
 import '../widgets/single_product.dart';
 import 'add_product_screen.dart';
@@ -26,11 +24,11 @@ class _MyProductScreenState extends State<MyProductScreen> {
   @override
   void initState() {
     super.initState();
-    fetchAllProducts();
+    fetchMyProducts();
   }
 
-  fetchAllProducts() async {
-    products = await sellerServices.fetchAllProducts(context);
+  fetchMyProducts() async {
+    products = await sellerServices.fetchMyProducts(context);
     setState(() {});
   }
 

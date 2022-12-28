@@ -25,7 +25,17 @@ class _SearchScreenState extends State<SearchScreen> {
   @override
   void initState() {
     super.initState();
-    fetchSearchedProduct();
+    if (widget.searchQuery == '') {
+      fetchAllProducts();
+    } else {
+      fetchSearchedProduct();
+    }
+    fetchAllProducts();
+  }
+
+  fetchAllProducts() async {
+    products = await searchServices.fetchAllProducts(context);
+    setState(() {});
   }
 
   fetchSearchedProduct() async {
