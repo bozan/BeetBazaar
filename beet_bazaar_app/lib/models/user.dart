@@ -10,6 +10,7 @@ class User {
   final String type;
   final String token;
   final List<dynamic> favs;
+  final List<dynamic> myProducts;
 
   User({
     required this.id,
@@ -20,6 +21,7 @@ class User {
     required this.type,
     required this.token,
     required this.favs,
+    required this.myProducts,
   });
 
   Map<String, dynamic> toMap() {
@@ -32,6 +34,7 @@ class User {
       'type': type,
       'token': token,
       'favs': favs,
+      'myProducts': myProducts,
     };
   }
 
@@ -45,6 +48,11 @@ class User {
         type: map['type'] as String,
         token: map['token'] as String,
         favs: List<Map<String, dynamic>>.from(
+          map['favs']?.map(
+            (x) => Map<String, dynamic>.from(x),
+          ),
+        ),
+        myProducts: List<Map<String, dynamic>>.from(
           map['favs']?.map(
             (x) => Map<String, dynamic>.from(x),
           ),
@@ -65,6 +73,7 @@ class User {
     String? type,
     String? token,
     List<dynamic>? favs,
+    List<dynamic>? myProducts,
   }) {
     return User(
       id: id ?? this.id,
@@ -75,6 +84,7 @@ class User {
       type: type ?? this.type,
       token: token ?? this.token,
       favs: favs ?? this.favs,
+      myProducts: myProducts ?? this.myProducts,
     );
   }
 }
