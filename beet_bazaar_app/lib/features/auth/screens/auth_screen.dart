@@ -24,6 +24,8 @@ class _AuthScreenState extends State<AuthScreen> {
 
   final AuthService authService = AuthService();
   final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _addressController = TextEditingController();
+  final TextEditingController _phoneController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _nameController = TextEditingController();
 
@@ -32,6 +34,8 @@ class _AuthScreenState extends State<AuthScreen> {
     super.dispose();
     _emailController.dispose();
     _passwordController.dispose();
+    _addressController.dispose();
+    _phoneController.dispose();
     _nameController.dispose();
   }
 
@@ -40,6 +44,8 @@ class _AuthScreenState extends State<AuthScreen> {
         context: context,
         email: _emailController.text,
         password: _passwordController.text,
+        address: _addressController.text,
+        phone: _phoneController.text,
         name: _nameController.text);
   }
 
@@ -54,6 +60,7 @@ class _AuthScreenState extends State<AuthScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        resizeToAvoidBottomInset: false,
         backgroundColor: GlobalVariables.greyBackgroundCOlor,
         body: SafeArea(
             child: Padding(
@@ -102,6 +109,16 @@ class _AuthScreenState extends State<AuthScreen> {
                         CustomTextField(
                           controller: _nameController,
                           hintText: 'Full Name',
+                        ),
+                        const SizedBox(height: 10),
+                        CustomTextField(
+                          controller: _addressController,
+                          hintText: 'Address',
+                        ),
+                        const SizedBox(height: 10),
+                        CustomTextField(
+                          controller: _phoneController,
+                          hintText: 'Phone number',
                         ),
                         const SizedBox(height: 10),
                         CustomTextField(

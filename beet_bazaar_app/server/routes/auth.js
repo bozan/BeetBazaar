@@ -10,7 +10,7 @@ const jwt = require('jsonwebtoken');
 //SIGN UP
 authRouter.post("/api/signup", async (req, res) => {
     try{
-        const  {name, email, password}  = req.body;
+        const  {name, email, password, address, phone}  = req.body;
 
         const existingUser = await User.findOne({email});
         if(existingUser){
@@ -22,6 +22,8 @@ authRouter.post("/api/signup", async (req, res) => {
             email,
             password: hashedPassword,
             name,
+            address,
+            phone,
         })
         user = await user.save();
         res.json(user);
