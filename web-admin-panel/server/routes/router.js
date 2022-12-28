@@ -19,7 +19,7 @@ route.get('/add-user', services.add_user)
 
 /**
  *  @description for update user
- *  @method PUT /update-user
+ *  @method GET /update-user
  */
 route.get('/update-user', services.update_user)
 
