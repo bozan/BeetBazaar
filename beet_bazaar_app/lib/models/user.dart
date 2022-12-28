@@ -7,6 +7,7 @@ class User {
   final String email;
   final String password;
   final String address;
+  final String phone;
   final String type;
   final String token;
   final List<dynamic> favs;
@@ -18,6 +19,7 @@ class User {
     required this.email,
     required this.password,
     required this.address,
+    required this.phone,
     required this.type,
     required this.token,
     required this.favs,
@@ -31,6 +33,7 @@ class User {
       'email': email,
       'password': password,
       'address': address,
+      'phone': phone,
       'type': type,
       'token': token,
       'favs': favs,
@@ -45,6 +48,7 @@ class User {
         email: map['email'] as String,
         password: map['password'] as String,
         address: map['address'] as String,
+        phone: map['phone'] as String,
         type: map['type'] as String,
         token: map['token'] as String,
         favs: List<Map<String, dynamic>>.from(
@@ -70,6 +74,7 @@ class User {
     String? email,
     String? password,
     String? address,
+    String? phone,
     String? type,
     String? token,
     List<dynamic>? favs,
@@ -81,6 +86,7 @@ class User {
       email: email ?? this.email,
       password: password ?? this.password,
       address: address ?? this.address,
+      phone: phone ?? this.phone,
       type: type ?? this.type,
       token: token ?? this.token,
       favs: favs ?? this.favs,
