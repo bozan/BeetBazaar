@@ -40,15 +40,15 @@ const userSchema = mongoose.Schema({
             },
         },
     ],
-    // productsToBeSold: [
-    //     {
-    //         product: productSchema,
-    //         quantity: {
-    //             type: Number,
-    //             required: true,
-    //         },
-    //     },
-    // ],
+    myProducts: [
+        {
+            product: productSchema,
+            quantity: {
+                type: Number,
+                required: true,
+            },
+        },
+    ],
 })
 
 

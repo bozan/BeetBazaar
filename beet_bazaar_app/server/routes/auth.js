@@ -7,13 +7,6 @@ const{ Product } = require("../models/product");
 const bcryptjs = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
-
-
-/*authRouter.get('/user', (req, res) => {
-    res.json({msg: "message"});
-});*/
-
-
 //SIGN UP
 authRouter.post("/api/signup", async (req, res) => {
     try{
@@ -104,6 +97,9 @@ authRouter.post('/add-product', auth, async (req, res) => {
             category,
         });
         product = await product.save();
+        const user = await User.findById(req.user);
+        user.myProducts.push({ product, quantity: product.quantity });
+        await user.save();
         res.json(product);
     } 
     catch(e){
@@ -111,7 +107,7 @@ authRouter.post('/add-product', auth, async (req, res) => {
     }
 });
 
-// get all your products
+// get all products
 // /get-products
 authRouter.get('/get-products', auth, async (req, res) => {
     try {
@@ -126,8 +122,17 @@ authRouter.get('/get-products', auth, async (req, res) => {
 authRouter.post('/delete-product', auth, async (req, res) => {
     try {
         const { id } = req.body;
-        let product = await Product.findByIdAndDelete(id);
-        res.json(product);
+        const user = await User.findById(req.user);
+        for (let i = 0; i < user.myProducts.length; i++) {
+            // product is already in myProducts, but compare two id objects, not strings
+            if (user.myProducts[i].product._id.equals(id)) {
+                user.myProducts.splice(i, 1);
+                break;
+            }
+        }
+        const fin = await Product.deleteOne({_id: id});
+        await user.save();
+        res.json(fin);
     } catch (e) {
         res.status(500).json({error: e.message});
     }

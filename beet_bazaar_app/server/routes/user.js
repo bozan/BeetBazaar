@@ -5,7 +5,7 @@ const auth = require("../middlewares/auth");
 const { Product } = require("../models/product");
 const User = require("../models/user");
 
-//add product
+//add product to favs
 userRouter.post('/api/add-to-favs', auth, async (req, res) => {
     try {
         const { id } = req.body;
@@ -29,7 +29,7 @@ userRouter.post('/api/add-to-favs', auth, async (req, res) => {
     }
 });
 
-//remove product
+//remove product from favs
 userRouter.delete('/api/remove-from-favs/:id', auth, async (req, res) => {
     try {
         const { id } = req.params;
