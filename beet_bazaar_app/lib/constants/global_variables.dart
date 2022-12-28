@@ -43,28 +43,33 @@ class GlobalVariables {
   static const List<Map<String, String>> categoryImages = [
     {
       'title': 'Mobiles',
-      'image': 'https://res.cloudinary.com/dpnhaucpu/image/upload/v1672056933/xcyvgzz4ztubbfwcatzd.jpg',
+      'image':
+          'https://res.cloudinary.com/dpnhaucpu/image/upload/v1672056933/xcyvgzz4ztubbfwcatzd.jpg',
     },
     {
       'title': 'Essentials',
-      'image': 'https://res.cloudinary.com/dpnhaucpu/image/upload/v1672056933/ijeajvsmw6wk72unszse.jpg',
+      'image':
+          'https://res.cloudinary.com/dpnhaucpu/image/upload/v1672056933/ijeajvsmw6wk72unszse.jpg',
     },
     {
       'title': 'Appliances',
-      'image': 'https://res.cloudinary.com/dpnhaucpu/image/upload/v1672056933/pshvevcjrstadtaqjso5.jpg',
+      'image':
+          'https://res.cloudinary.com/dpnhaucpu/image/upload/v1672056933/pshvevcjrstadtaqjso5.jpg',
     },
     {
       'title': 'Hobies',
-      'image': 'https://res.cloudinary.com/dpnhaucpu/image/upload/v1672056933/w6ccprdhlgeunhrejlgj.jpg',
+      'image':
+          'https://res.cloudinary.com/dpnhaucpu/image/upload/v1672056933/w6ccprdhlgeunhrejlgj.jpg',
     },
     {
       'title': 'Fashion',
-      'image': 'https://res.cloudinary.com/dpnhaucpu/image/upload/v1672056933/jo0zmddwfcasoc9ijuss.jpg',
+      'image':
+          'https://res.cloudinary.com/dpnhaucpu/image/upload/v1672056933/jo0zmddwfcasoc9ijuss.jpg',
     },
     {
       'title': 'Electronics',
-      'image': 'https://res.cloudinary.com/dpnhaucpu/image/upload/v1672056933/lzijtbctydsrwoywlo8j.jpg',
+      'image':
+          'https://res.cloudinary.com/dpnhaucpu/image/upload/v1672056933/lzijtbctydsrwoywlo8j.jpg',
     },
-
   ];
 }
