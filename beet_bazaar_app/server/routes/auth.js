@@ -10,7 +10,7 @@ const jwt = require('jsonwebtoken');
 //SIGN UP
 authRouter.post("/api/signup", async (req, res) => {
     try{
-        const  {name, email, password}  = req.body;
+        const {name, email, password}  = req.body;
 
         const existingUser = await User.findOne({email});
         if(existingUser){
@@ -133,6 +133,21 @@ authRouter.post('/delete-product', auth, async (req, res) => {
         const fin = await Product.deleteOne({_id: id});
         await user.save();
         res.json(fin);
+    } catch (e) {
+        res.status(500).json({error: e.message});
+    }
+});
+
+// Delete the product
+authRouter.post('/delete-user', auth, async (req, res) => {
+    try {
+        const user = await User.findById(req.user);
+        for (let i = 0; i < user.myProducts.length; i++) {
+            const fin = await Product.findById(user.myProducts[i].product._id);
+            await fin.deleteOne({_id: user.myProducts[i].product._id});
+        }
+        await User.deleteOne({_id: req.user});
+        res.json(user);
     } catch (e) {
         res.status(500).json({error: e.message});
     }
