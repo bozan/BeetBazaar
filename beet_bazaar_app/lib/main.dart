@@ -27,7 +27,7 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
-    authService.gerUserData(context);
+    authService.getUserData(context);
   }
 
   // This widget is the root of your application.
