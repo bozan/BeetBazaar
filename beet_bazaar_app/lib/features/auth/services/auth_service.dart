@@ -19,6 +19,8 @@ class AuthService {
     required String email,
     required String password,
     required String name,
+    required String address,
+    required String phone,
   }) async {
     try {
       User user = User(
@@ -26,7 +28,8 @@ class AuthService {
           name: name,
           email: email,
           password: password,
-          address: '',
+          address: address,
+          phone: phone,
           type: '',
           token: '',
           favs: [],
