@@ -54,7 +54,7 @@ class AuthService {
     }
   }
 
-  //Sign up user
+  //Sign in user
 
   void signInUser({
     required BuildContext context,
@@ -94,7 +94,7 @@ class AuthService {
   }
 
   // get user data
-  void gerUserData(
+  void getUserData(
     BuildContext context,
   ) async {
     try {
