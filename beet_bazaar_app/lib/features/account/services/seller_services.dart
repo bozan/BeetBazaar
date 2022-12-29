@@ -61,13 +61,13 @@ class SellerServices {
     }
   }
 
-  // get all the products
-  Future<List<Product>> fetchAllProducts(BuildContext context) async {
+  // get my products
+  Future<List<Product>> fetchMyProducts(BuildContext context) async {
     final userProvider = Provider.of<UserProvider>(context, listen: false);
     List<Product> productList = [];
     try {
       http.Response res =
-          await http.get(Uri.parse('$uri/get-products'), headers: {
+          await http.get(Uri.parse('$uri/get-my-products'), headers: {
         'Content-Type': 'application/json; charset=UTF-8',
         'x-auth-token': userProvider.user.token,
       });

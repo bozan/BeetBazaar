@@ -120,6 +120,21 @@ authRouter.get('/get-products', auth, async (req, res) => {
     }
 })
 
+// get my products
+authRouter.get('/get-my-products', auth, async (req, res) => {
+    try {
+        let products = [];
+        const user = await User.findById(req.user);
+        for (let i = 0; i < user.myProducts.length; i++) {
+            // product is already in myProducts, but compare two id objects, not strings
+            products.push(user.myProducts[i].product);
+        }
+        res.json(products);
+    } catch (e) {
+        res.status(500).json({error: e.message});
+    }
+})
+
 // Delete the product
 authRouter.post('/delete-product', auth, async (req, res) => {
     try {
