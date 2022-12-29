@@ -3,12 +3,8 @@ import 'package:beet_bazaar_app/constants/global_variables.dart';
 import 'package:beet_bazaar_app/features/product_details/services/product_details_services.dart';
 import 'package:beet_bazaar_app/features/search/screens/search_screen.dart';
 import 'package:beet_bazaar_app/models/product.dart';
-import 'package:beet_bazaar_app/providers/user_provider.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:beet_bazaar_app/common/widgets/stars.dart';
-import 'package:provider/provider.dart';
 
 class ProductDetailScreen extends StatefulWidget {
   static const String routeName = '/product-details';
@@ -26,6 +22,14 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
   final ProductDetailsServices productDetailsServices =
       ProductDetailsServices();
 
+  List<String> owner = [];
+
+  @override
+  void initState() {
+    super.initState();
+    findOwner();
+  }
+
   void navigateToSearchScreen(String query) {
     Navigator.pushNamed(context, SearchScreen.routeName, arguments: query);
   }
@@ -34,10 +38,14 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
     productDetailsServices.addToFavs(context: context, product: widget.product);
   }
 
+  void findOwner() async {
+    owner = await productDetailsServices.findOwner(
+        context: context, product: widget.product);
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
-    final user = context.watch<UserProvider>().user;
-    //final product = context.watch<Pr>().user;
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(60),
@@ -121,8 +129,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                 horizontal: 10,
               ),
               child: Text(
-                // TODO: add product seller name here
-                '${widget.product.name} by ${widget.product.name}',
+                '${widget.product.name} by ${owner[0].replaceAll('"', '')}',
                 style: const TextStyle(
                   fontSize: 15,
                 ),
@@ -187,8 +194,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                 right: 10,
               ),
               child: CustomButton(
-                // TODO: Add user data to the product and display it here
-                text: 'Seller contact: ${widget.product.id}',
+                text: 'Seller contact: ${owner[1].replaceAll('"', '')}',
                 onTap: () {},
               ),
             ),

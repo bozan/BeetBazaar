@@ -50,4 +50,25 @@ userRouter.delete('/api/remove-from-favs/:id', auth, async (req, res) => {
         res.status(500).json({ error: e.message });
     }
 });
+
+userRouter.get("/api/find-owner/:id", auth, async (req, res) => {
+    try {
+      const { id } = req.params;
+      const product = await Product.findById(id);
+      let allUsers = await User.find({});
+      let owner = [];
+      for (let i = 0; i < allUsers.length; i++) {
+        for (let j = 0; j < allUsers[i].myProducts.length; j++) {
+          if (allUsers[i].myProducts[j].product._id.equals(product._id)) {
+            owner.push(allUsers[i].name);
+            owner.push(allUsers[i].phone);
+            break;
+          }
+        }
+      }
+      res.json(owner);
+    } catch (e) {
+      res.status(500).json({ error: e.message });
+    }
+  });
 module.exports = userRouter;

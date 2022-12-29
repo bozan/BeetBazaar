@@ -25,12 +25,10 @@ class _SearchScreenState extends State<SearchScreen> {
   @override
   void initState() {
     super.initState();
-    if (widget.searchQuery == '') {
-      fetchAllProducts();
-    } else {
+    fetchAllProducts();
+    if (widget.searchQuery != '') {
       fetchSearchedProduct();
     }
-    fetchAllProducts();
   }
 
   fetchAllProducts() async {
