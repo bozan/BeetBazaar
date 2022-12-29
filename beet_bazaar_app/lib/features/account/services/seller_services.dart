@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:beet_bazaar_app/constants/error_handling.dart';
 import 'package:beet_bazaar_app/constants/global_variables.dart';
 import 'package:beet_bazaar_app/constants/utils.dart';
+import 'package:beet_bazaar_app/features/account/screens/my_product_screen.dart';
 import 'package:beet_bazaar_app/models/product.dart';
 import 'package:beet_bazaar_app/providers/user_provider.dart';
 import 'package:cloudinary_public/cloudinary_public.dart';
@@ -53,8 +54,11 @@ class SellerServices {
           response: res,
           context: context,
           onSuccess: () {
+            Navigator.pushNamed(
+              context,
+              MyProductScreen.routeName,
+            );
             showSnackBar(context, 'Product added successfully');
-            Navigator.pop(context);
           });
     } catch (e) {
       showSnackBar(context, e.toString());
