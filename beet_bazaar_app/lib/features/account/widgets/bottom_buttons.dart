@@ -1,6 +1,5 @@
 import 'package:beet_bazaar_app/features/account/services/account_services.dart';
 import 'package:beet_bazaar_app/features/account/widgets/delete_user_button.dart';
-import 'package:beet_bazaar_app/features/auth/screens/auth_screen.dart';
 import 'package:flutter/material.dart';
 
 class BottomButtons extends StatelessWidget {

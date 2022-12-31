@@ -5,7 +5,6 @@ import 'package:beet_bazaar_app/constants/utils.dart';
 import 'package:beet_bazaar_app/models/product.dart';
 import 'package:beet_bazaar_app/models/user.dart';
 import 'package:beet_bazaar_app/providers/user_provider.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:http/http.dart' as http;
