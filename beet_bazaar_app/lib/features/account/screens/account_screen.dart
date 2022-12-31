@@ -26,7 +26,6 @@ class _AccountScreenState extends State<AccountScreen> {
     final user = Provider.of<UserProvider>(context).user;
 
     double width = MediaQuery.of(context).size.width;
-    double height = MediaQuery.of(context).size.height;
     return Scaffold(
       backgroundColor: Colors.white,
       body: SizedBox(
@@ -72,7 +71,7 @@ class _AccountScreenState extends State<AccountScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    Text(
+                    const Text(
                       "Name Surname",
                       overflow: TextOverflow.ellipsis,
                       textAlign: TextAlign.left,
@@ -84,12 +83,12 @@ class _AccountScreenState extends State<AccountScreen> {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.only(top: 5.0),
+                      padding: const EdgeInsets.only(top: 5.0),
                       child: Text(
                         user.name,
                         overflow: TextOverflow.ellipsis,
                         textAlign: TextAlign.left,
-                        style: TextStyle(
+                        style: const TextStyle(
                           color: Colors.black,
                           fontSize: 16,
                           height: 1.25,
@@ -114,7 +113,7 @@ class _AccountScreenState extends State<AccountScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    Text(
+                    const Text(
                       "E-MAIL",
                       overflow: TextOverflow.ellipsis,
                       textAlign: TextAlign.left,
@@ -126,14 +125,14 @@ class _AccountScreenState extends State<AccountScreen> {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.only(
+                      padding: const EdgeInsets.only(
                         top: 5,
                       ),
                       child: Text(
                         user.email,
                         overflow: TextOverflow.ellipsis,
                         textAlign: TextAlign.left,
-                        style: TextStyle(
+                        style: const TextStyle(
                           color: Colors.black,
                           fontSize: 16,
                           height: 1.25,
@@ -158,7 +157,7 @@ class _AccountScreenState extends State<AccountScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(
+                    const Text(
                       "PHONE NUMBER",
                       overflow: TextOverflow.ellipsis,
                       textAlign: TextAlign.left,
@@ -170,7 +169,7 @@ class _AccountScreenState extends State<AccountScreen> {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.only(
+                      padding: const EdgeInsets.only(
                         top: 4,
                         bottom: 1,
                       ),
@@ -178,7 +177,7 @@ class _AccountScreenState extends State<AccountScreen> {
                         user.phone,
                         overflow: TextOverflow.ellipsis,
                         textAlign: TextAlign.left,
-                        style: TextStyle(
+                        style: const TextStyle(
                           color: Colors.black,
                           fontSize: 16,
                           height: 1.25,
@@ -203,7 +202,7 @@ class _AccountScreenState extends State<AccountScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    Text(
+                    const Text(
                       "Address",
                       overflow: TextOverflow.ellipsis,
                       textAlign: TextAlign.left,
@@ -215,14 +214,14 @@ class _AccountScreenState extends State<AccountScreen> {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.only(
+                      padding: const EdgeInsets.only(
                         top: 5,
                       ),
                       child: Text(
                         user.address,
                         overflow: TextOverflow.ellipsis,
                         textAlign: TextAlign.left,
-                        style: TextStyle(
+                        style: const TextStyle(
                           color: Colors.black,
                           fontSize: 16,
                           height: 1.25,
@@ -232,7 +231,7 @@ class _AccountScreenState extends State<AccountScreen> {
                   ],
                 ),
               ),
-              customProductButton(
+              CustomProductButton(
                 text: 'MY PRODUCTS',
                 onTap: navigateToMyProductScreen,
               ),

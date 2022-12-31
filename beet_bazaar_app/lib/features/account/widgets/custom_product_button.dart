@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-class customProductButton extends StatelessWidget {
+class CustomProductButton extends StatelessWidget {
   final String text;
   final VoidCallback onTap;
-  const customProductButton({
+  const CustomProductButton({
     super.key,
     required this.text,
     required this.onTap,

@@ -3,9 +3,7 @@ import 'package:beet_bazaar_app/features/home/widgets/carousel_image.dart';
 import 'package:beet_bazaar_app/features/home/widgets/top_categories.dart';
 import 'package:beet_bazaar_app/features/search/screens/search_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
-import '../../../providers/user_provider.dart';
 import '../widgets/product_of_day.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -23,7 +21,6 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final user = Provider.of<UserProvider>(context).user;
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: PreferredSize(
@@ -49,7 +46,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       decoration: const InputDecoration(
                         prefixIcon: InkWell(
                           //onTap: () => _search(),
-                          child: const Padding(
+                          child: Padding(
                             padding: EdgeInsets.only(left: 6),
                             child: Icon(
                               Icons.search,
@@ -60,12 +57,12 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                         filled: true,
                         fillColor: Colors.white,
-                        contentPadding: const EdgeInsets.only(top: 10),
-                        border: const OutlineInputBorder(
+                        contentPadding: EdgeInsets.only(top: 10),
+                        border: OutlineInputBorder(
                           borderRadius: BorderRadius.all(Radius.circular(7)),
                           borderSide: BorderSide.none,
                         ),
-                        enabledBorder: const OutlineInputBorder(
+                        enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.all(Radius.circular(7)),
                           borderSide: BorderSide(
                             color: Colors.black38,
@@ -73,7 +70,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                         ),
                         hintText: "Search",
-                        hintStyle: const TextStyle(
+                        hintStyle: TextStyle(
                           fontWeight: FontWeight.w500,
                           fontSize: 17,
                         ),
