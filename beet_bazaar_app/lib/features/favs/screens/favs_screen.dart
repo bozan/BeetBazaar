@@ -1,6 +1,5 @@
 // ignore_for_file: unnecessary_const
 
-import 'package:beet_bazaar_app/common/widgets/custom_button.dart';
 import 'package:beet_bazaar_app/constants/global_variables.dart';
 import 'package:beet_bazaar_app/features/favs/widgets/favs_product.dart';
 import 'package:beet_bazaar_app/features/favs/widgets/favs_subtotal.dart';

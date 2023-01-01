@@ -14,6 +14,7 @@ class TopCategories extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
+      key: Key('topCategoriesCol'),
       height: 60,
       child: ListView.builder(
         itemCount: GlobalVariables.categoryImages.length,
