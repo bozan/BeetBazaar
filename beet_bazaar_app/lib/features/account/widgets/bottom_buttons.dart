@@ -10,24 +10,27 @@ class BottomButtons extends StatelessWidget {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
     return Column(
+      key: const Key('bottomButtonsCol'),
       children: [
         Row(
+          key: const Key('bottomButtonsColRow'),
           children: [
             Container(
               padding: EdgeInsets.only(top: height / 7, left: width / 4),
               child: Column(
+                key: const Key('bottomButtonsColRowCol'),
                 children: [
                   DeleteUserButton(
+                    key: const Key('bottomButtonsLogoutButton'),
                     text: 'Log Out',
                     onTap: () => AccountServices().logOut(context),
                   ),
-                  const SizedBox(height: 10),
+                  const SizedBox(
+                      key: Key('bottomButtonsColRowColSizedBox'), height: 10),
                   DeleteUserButton(
+                    key: const Key('bottomButtonsDeleteButton'),
                     text: 'Delete Account',
-                    onTap: () => {
-                      // ignore: avoid_print
-                      AccountServices().deleteUser(context)
-                    }, //buraya basinca user sil fonksiyonu gelcek
+                    onTap: () => AccountServices().deleteUser(context),
                   ),
                 ],
               ),

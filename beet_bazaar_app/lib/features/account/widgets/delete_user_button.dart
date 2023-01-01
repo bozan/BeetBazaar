@@ -12,10 +12,7 @@ class DeleteUserButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      // ignore: sort_child_properties_last
-      child: Text(
-        text,
-      ),
+      key: const Key('elevatedButton'),
       onPressed: onTap,
       style: ElevatedButton.styleFrom(
           shape: const StadiumBorder(),
@@ -23,6 +20,10 @@ class DeleteUserButton extends StatelessWidget {
           maximumSize: const Size(double.infinity, 60),
           backgroundColor: const Color.fromARGB(255, 253, 51, 51),
           textStyle: const TextStyle(fontSize: 17)),
+      child: Text(
+        key: const Key('elevatedButtonText'),
+        text,
+      ),
     );
   }
 }

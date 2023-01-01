@@ -41,6 +41,7 @@ class _FavsProductState extends State<FavsProduct> {
     final productFavs = context.watch<UserProvider>().user.favs[widget.index];
     final product = Product.fromMap(productFavs['product']);
     return GestureDetector(
+      key: const Key('FavsProduct'),
       onTap: () {
         Navigator.pushNamed(
           context,
@@ -114,32 +115,6 @@ class _FavsProductState extends State<FavsProduct> {
                         ),
                       ),
                     ),
-                    // to show the amount of product, we'll always have 1 of each
-                    // Container(
-                    //   width: 35,
-                    //   height: 32,
-                    //   alignment: Alignment.center,
-                    //   child: Text(
-                    //     quantity.toString(),
-                    //     style: const TextStyle(
-                    //       fontSize: 16,
-                    //       fontWeight: FontWeight.bold,
-                    //     ),
-                    //   ),
-                    // ),
-                    // InkWell(
-                    //   onTap: () => increaseQuantity(product),
-                    //   child: Container(
-                    //     width: 35,
-                    //     height: 32,
-                    //     alignment: Alignment.center,
-                    //     child: const Icon(
-                    //       Icons.add,
-                    //       color: Colors.black,
-                    //       size: 18,
-                    //     ),
-                    //   ),
-                    // ),
                   ]),
                 ),
               ],

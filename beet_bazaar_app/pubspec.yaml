@@ -49,10 +49,12 @@ dependencies:
   dotted_border: ^2.0.0+3
   cloudinary_public: ^0.20.0
   flutter_rating_bar: ^4.0.1
+  mockito: ^5.3.2
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  build_runner: any
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is

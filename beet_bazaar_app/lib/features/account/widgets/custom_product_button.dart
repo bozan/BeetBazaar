@@ -12,17 +12,18 @@ class CustomProductButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      // ignore: sort_child_properties_last
-      child: Text(
-        text,
-      ),
+      key: const Key('elevatedButton'),
       onPressed: onTap,
       style: ElevatedButton.styleFrom(
           minimumSize: const Size(double.infinity, 60),
           alignment: Alignment.centerLeft,
           backgroundColor: Colors.white,
-          onPrimary: Colors.black,
+          foregroundColor: Colors.black,
           textStyle: const TextStyle(fontSize: 17)),
+      child: Text(
+        key: const Key('elevatedButtonText'),
+        text,
+      ),
     );
   }
 }

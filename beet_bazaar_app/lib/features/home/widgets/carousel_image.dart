@@ -32,6 +32,7 @@ class _CarouselImageState extends State<CarouselImage> {
   Widget build(BuildContext context) {
     return products != null
         ? CarouselSlider(
+            key: Key('bottomButtonsCol'),
             items: products!.map(
               (i) {
                 return GestureDetector(
@@ -60,6 +61,7 @@ class _CarouselImageState extends State<CarouselImage> {
             ),
           )
         : CarouselSlider(
+            key: Key('bottomButtonsCol'),
             items: GlobalVariables.carouselImages.map(
               (i) {
                 return Builder(
