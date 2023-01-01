@@ -73,6 +73,7 @@ class _AccountScreenState extends State<AccountScreen> {
                   children: [
                     const Text(
                       "Name Surname",
+                      key : Key('nameSurname'),
                       overflow: TextOverflow.ellipsis,
                       textAlign: TextAlign.left,
                       style: TextStyle(

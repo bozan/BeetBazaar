@@ -151,22 +151,26 @@ class _AddProductScreenState extends State<AddProductScreen> {
                       ),
                 const SizedBox(height: 30),
                 CustomTextField(
+                  key: Key("productName"),
                   controller: productNameController,
                   hintText: 'Product Name',
                 ),
                 const SizedBox(height: 10),
                 CustomTextField(
+                  key: Key("price"),
                   controller: priceController,
                   hintText: 'Price',
                 ),
                 const SizedBox(height: 10),
                 CustomTextField(
+                  key: Key("description"),
                   controller: descriptionController,
                   hintText: 'Description',
                   maxLines: 7,
                 ),
                 const SizedBox(height: 10),
                 CustomTextField(
+                  key: Key("quantity"),
                   controller: quantityController,
                   hintText: 'Quantity',
                 ),
