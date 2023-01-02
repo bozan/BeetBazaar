@@ -14,13 +14,13 @@ class AuthScreen extends StatefulWidget {
   static const String routeName = '/auth-screen';
 
   @override
-  State<AuthScreen> createState() => _AuthScreenState();
+  AuthScreenState createState() => AuthScreenState();
 }
 
-class _AuthScreenState extends State<AuthScreen> {
+class AuthScreenState extends State<AuthScreen> {
   Auth _auth = Auth.signup;
-  final _signUpFormKey = GlobalKey<FormState>();
-  final _signInFormKey = GlobalKey<FormState>();
+  final signUpFormKey = GlobalKey<FormState>();
+  final signInFormKey = GlobalKey<FormState>();
 
   final AuthService authService = AuthService();
   final TextEditingController _emailController = TextEditingController();
@@ -103,38 +103,44 @@ class _AuthScreenState extends State<AuthScreen> {
                   padding: const EdgeInsets.all(8),
                   color: GlobalVariables.backgroundColor,
                   child: Form(
-                    key: _signUpFormKey,
+                    key: signUpFormKey,
                     child: Column(
                       children: [
                         CustomTextField(
+                          key: const Key('name-field'),
                           controller: _nameController,
                           hintText: 'Full Name',
                         ),
                         const SizedBox(height: 10),
                         CustomTextField(
+                          key: const Key('address-field'),
                           controller: _addressController,
                           hintText: 'Address',
                         ),
                         const SizedBox(height: 10),
                         CustomTextField(
+                          key: const Key('phone-field'),
                           controller: _phoneController,
                           hintText: 'Phone number',
                         ),
                         const SizedBox(height: 10),
                         CustomTextField(
+                          key: const Key('email-field'),
                           controller: _emailController,
                           hintText: 'Email',
                         ),
                         const SizedBox(height: 10),
                         CustomTextField(
+                          key: const Key('password-field'),
                           controller: _passwordController,
                           hintText: 'Password',
                         ),
                         const SizedBox(height: 10),
                         CustomButton(
+                          key: const Key('sign-up-button'),
                           text: 'Sign Up',
                           onTap: () {
-                            if (_signUpFormKey.currentState!.validate()) {
+                            if (signUpFormKey.currentState!.validate()) {
                               signUpUser();
                             }
                           },
@@ -170,7 +176,7 @@ class _AuthScreenState extends State<AuthScreen> {
                   padding: const EdgeInsets.all(8),
                   color: GlobalVariables.backgroundColor,
                   child: Form(
-                    key: _signInFormKey,
+                    key: signInFormKey,
                     child: Column(
                       children: [
                         CustomTextField(
@@ -179,14 +185,16 @@ class _AuthScreenState extends State<AuthScreen> {
                         ),
                         const SizedBox(height: 10),
                         CustomTextField(
+                          key: const Key('password-field'),
                           controller: _passwordController,
                           hintText: 'Password',
                         ),
                         const SizedBox(height: 10),
                         CustomButton(
+                          key: const Key('sign-in-button'),
                           text: 'Sign In',
                           onTap: () {
-                            if (_signInFormKey.currentState!.validate()) {
+                            if (signInFormKey.currentState!.validate()) {
                               signInUser();
                             }
                           },
