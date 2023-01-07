@@ -22,12 +22,12 @@ class SearchedProduct extends StatelessWidget {
                 product.images[0],
                 fit: BoxFit.contain,
                 height: 135,
-                width: 135,
+                width: 170,
               ),
               Column(
                 children: [
                   Container(
-                    width: 235,
+                    width: 170,
                     padding: const EdgeInsets.symmetric(horizontal: 10),
                     child: Text(
                       product.name,
@@ -38,7 +38,7 @@ class SearchedProduct extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    width: 235,
+                    width: 170,
                     padding: const EdgeInsets.only(left: 10, top: 5),
                     child: Text(
                       '\$${product.price}',
