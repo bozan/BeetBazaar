@@ -19,8 +19,8 @@ exports.create = (req,res) => {
     user
         .save(user)
         .then(data => {
-            //res.send(data)
-            res.redirect('/add-user');
+            //res.redirect('/add-user');
+            return user;
         })
         .catch(err =>{
             return res.status(500).json({ message : err.message || "Some error occurred while creating a create operation" });
@@ -76,7 +76,7 @@ exports.update = (req, res) => {
 }
 
 // Delete a user with specified user id in the request
-exports.delete = (req, res)=>{
+exports.del = (req, res) => {
     const id = req.params.id;
 
     User.findByIdAndDelete(id)
