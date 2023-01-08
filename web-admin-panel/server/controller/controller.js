@@ -3,7 +3,7 @@ const User = require('../model/user');
 
 // create and save new user
 exports.create = (req,res) => {
-    const {name, email, password} = req.body;
+    const {name, email, password, address} = req.body;
     if (!req.body) {
         return res.status(400).send({ message : "Content can not be emtpy!" });
     }
@@ -13,6 +13,7 @@ exports.create = (req,res) => {
         name,
         email,
         password,
+        address,
     });
 
     // save user in the database
