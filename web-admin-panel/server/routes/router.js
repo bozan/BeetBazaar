@@ -34,7 +34,7 @@ route.get('/products', services.homeProducts);
 route.post('/api/users', controller.create);
 route.get('/api/users', controller.find);
 route.put('/api/users/:id', controller.update);
-route.delete('/api/users/:id', controller.delete);
+route.delete('/api/users/:id', controller.del);
 
 // API FOR PRODUCTS
 route.get('/api/products', controller_product.find);
