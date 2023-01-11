@@ -35,17 +35,6 @@ Transaction of used goods is essential for not wasting resources and recycling p
     - Either with Basket + when “Buy” is clicked, the product is no longer available in the market, and the contact info of the seller will be provided for the buyer
     - Or with Buyer + Seller Username / Rating Entrance - Notification by Confirmed contact way or Permanent Dialog / Notification
 
-## 1.3. Designs
-
-<img alt="signup pages" src="https://github.com/bozan/BeetBazaar/blob/main/designed%20templates/signup_signin.png?raw=true"></img></a>
-<img alt="signup pages" src="https://github.com/bozan/BeetBazaar/blob/main/designed%20templates/product_pages.png?raw=true"></img></a>
-
-
-<p align="center">
-<img width=325 alt="signup pages" src="https://github.com/bozan/BeetBazaar/blob/main/designed%20templates/profile_page.png?raw=true"></img></a> 
-<img width=680 alt="signup pages" src="https://github.com/bozan/BeetBazaar/blob/main/designed%20templates/selling_pages.png?raw=true"></img></a>  
-</p>
-
 
 # 2. Project Plan
 
